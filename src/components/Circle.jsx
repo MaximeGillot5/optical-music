@@ -10,21 +10,18 @@ const Circle = () => {
 
   const toggleAnimation = () => {
     if (!audioRef.current.played.length) {
-      // Si la musique n'a pas encore été jouée, la démarrer
       audioRef.current.play();
     }
 
     if (isAnimating) {
-      // Si l'animation est en cours, on ralentit l'animation et on réinitialise en douceur
-      animationRef.current?.kill(); // Stopper l'animation en cours
+      animationRef.current?.kill(); 
       gsap.to(".animated-circle", {
-        y: 0, // Retour à la position de départ
-        borderColor: "#f87171", // Retour à la couleur initiale
-        duration: 1, // Durée pour ralentir progressivement
-        ease: "power2.out" // Courbe d'animation fluide
+        y: 0, 
+        borderColor: "#f87171",
+        duration: 1,
+        ease: "power2.out"
       });
     } else {
-      // Si l'animation est stoppée, on la démarre
       animationRef.current = gsap.to(".animated-circle", {
         y: -40,
         borderColor: ["#f87171", "#8A2BE2", "#FF69B4", "#9400D3", "#FF00FF"], // Changement de couleurs
@@ -38,7 +35,7 @@ const Circle = () => {
 
   return (
     <section
-      className="w-96 h-96 relative grid place-items-center cursor-pointer"
+      className="bottom-28 w-96 h-96 relative grid place-items-center cursor-pointer"
       onClick={toggleAnimation} 
     >
         
